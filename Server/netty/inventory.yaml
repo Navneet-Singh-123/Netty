@@ -1,0 +1,21 @@
+testbed:
+  name: lab_testbed1
+  credentials:
+    default:
+      username: some.user
+      password: some.pass
+devices:
+  lab-fra3-lef-1a:
+    type: switch
+    os: nxos
+    connections:
+      mgmt:
+        protocol: ssh
+        ip: 10.4.0.24
+  lab-fra3-lef-1a:
+    type: switch
+    os: nxos
+    connections:
+      mgmt:
+        protocol: ssh
+        ip: 10.4.0.24
