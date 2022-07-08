@@ -36,8 +36,11 @@ class NettyOps:
             try: 
                 inventory.connect(device, mit=True, connection_timeout=10)
             except: 
-                return {"result": "Unableto connect. Please enter your credentials again.", "status_code": status.HTTP_200_OK}
-            dd = inventory.execute(self.command)
+                return {"result": "Unable to connect. Please enter your credentials again.", "status_code": status.HTTP_200_OK}
+            try:
+                dd = inventory.execute(self.command)
+            except: 
+                return {"result": "Unable to execute. Please enter a valid command.", "status_code": status.HTTP_200_OK}
         finally:
             sys.stdout.close()
             sys.stdout = old_stdout
