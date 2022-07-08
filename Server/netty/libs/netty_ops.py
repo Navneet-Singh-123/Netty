@@ -34,7 +34,7 @@ class NettyOps:
         sys.stdout = open(os.devnull, "w")
         try:
             inventory.connect(device, mit=True, connection_timeout=10)
-            dd = inventory.parse('show version')
+            dd = inventory.execute(self.command)
         finally:
             sys.stdout.close()
             sys.stdout = old_stdout
