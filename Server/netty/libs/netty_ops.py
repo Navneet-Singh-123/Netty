@@ -3,6 +3,7 @@ from genie import testbed
 from rest_framework import status
 import sys
 import os
+from pathlib import Path
 
 # Fetching the operational state of the network device
 
@@ -16,7 +17,8 @@ class NettyOps:
 
     def parser(self):
         try:
-            inventory = testbed.load('netty/inventory.yaml')
+            inventory_path = Path(os.path.join(os.getcwd(), "Server", "netty", "inventory.yaml"))
+            inventory = testbed.load(inventory_path)
         except Exception as e:
             return {"error": "Unable to load inventory", "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR}
         inventory.testbed.credentials.default.username = self.username
