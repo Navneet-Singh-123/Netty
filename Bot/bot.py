@@ -56,6 +56,13 @@ def update_home_tab(client, event, logger):
                                 "type": "mrkdwn",
                                 "text": "*Usage*: \n/netty -c <command-name> -d <device-name>\n/netty-auth -u <user-name> -p <password>"
                         }
+                    }, 
+                     {
+                        "type": "section",
+                        "text": {
+                                "type": "mrkdwn",
+                                "text": "*Supported Device*: \nlab-fra3-lef-1a"
+                        }
                     }
                 ],
             },
